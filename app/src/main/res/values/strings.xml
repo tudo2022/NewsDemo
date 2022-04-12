@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsDemo</string>
+    <string name="news_image">News image</string>
+    <string name="error_text">抱歉，网络连接失败</string>
+</resources>
