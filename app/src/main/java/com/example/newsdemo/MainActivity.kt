@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                     recyclerView.visibility=View.INVISIBLE
                     progressBar.visibility=View.INVISIBLE
                     errorTextView.visibility=View.VISIBLE
-                    Log.e("hm", "err",t)
+                    // Log.e("hm", "err",t)
                 }
             })
             swipeRefreshLayout.isRefreshing=false
