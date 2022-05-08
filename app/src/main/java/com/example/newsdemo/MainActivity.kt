@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         //下拉刷新
         val swipeRefreshLayout=findViewById<SwipeRefreshLayout>(R.id.srl_news)
+
         swipeRefreshLayout.setOnRefreshListener {
             val news2 = retrofit.getNews("apple", "popularity", "282282d0e89141e1ba55a7b0c3ed5ff5")
             news2.enqueue(object : Callback<NewsData> {
