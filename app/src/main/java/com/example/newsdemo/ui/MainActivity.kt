@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         val vm: MainViewModel by viewModels()
 
         recyclerView = findViewById(R.id.rv_news)
+
         progressBar = findViewById(R.id.pb_news)
         errorTextView = findViewById(R.id.tv_error)
-
         recyclerView.adapter = NewsAdapter()
         vm.getData()
 
