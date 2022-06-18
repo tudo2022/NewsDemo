@@ -1,7 +1,6 @@
-package com.example.newsdemo
+package com.example.newsdemo.api
 
-import retrofit2.Call
-import retrofit2.Response
+import com.example.newsdemo.data.NewsData
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,5 +10,5 @@ interface NewsApi {
         @Query("q") q: String,
         @Query("sortBy") sortBy: String,
         @Query("apiKey") apiKey: String
-    ): Response<NewsData>
+    ): NewsData
 }

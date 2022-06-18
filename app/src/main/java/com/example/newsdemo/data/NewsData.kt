@@ -1,4 +1,4 @@
-package com.example.newsdemo
+package com.example.newsdemo.data
 
 data class NewsData(
     val status: String?,

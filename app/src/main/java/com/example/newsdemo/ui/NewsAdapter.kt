@@ -1,4 +1,4 @@
-package com.example.newsdemo
+package com.example.newsdemo.ui
 
 import android.net.Uri
 import android.view.LayoutInflater
@@ -8,9 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.newsdemo.R
+import com.example.newsdemo.data.ArticleModel
 
-class NewsAdapter(private val data: MutableList<ArticleModel>) :
+class NewsAdapter() :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+    private val list: MutableList<ArticleModel> = emptyList<ArticleModel>().toMutableList()
+
     class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.tv_title)
         val author: TextView = view.findViewById(R.id.tv_author)
@@ -24,12 +28,17 @@ class NewsAdapter(private val data: MutableList<ArticleModel>) :
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        val articles = data[position]
+        val articles = list[position]
         holder.author.text = articles.author
         holder.title.text = articles.title
         val imageUrl = Uri.parse(articles.urlToImage)
         Glide.with(holder.imageView).load(imageUrl).into(holder.imageView)
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = list.size
+
+    fun setData(list: List<ArticleModel>) {
+        this.list.clear()
+        this.list.addAll(list)
+    }
 }
