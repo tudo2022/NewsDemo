@@ -37,8 +37,10 @@ class NewsAdapter() :
 
     override fun getItemCount(): Int = list.size
 
+
     fun setData(list: List<ArticleModel>) {
         this.list.clear()
         this.list.addAll(list)
+        notifyDataSetChanged()
     }
 }

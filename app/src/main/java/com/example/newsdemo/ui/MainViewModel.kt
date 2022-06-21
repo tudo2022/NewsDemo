@@ -1,8 +1,11 @@
 package com.example.newsdemo.ui
 
 import android.util.Log
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide
 import com.example.newsdemo.api.NewsApi
 import com.example.newsdemo.data.ArticleModel
 import kotlinx.coroutines.Dispatchers
@@ -44,4 +47,5 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
 }
