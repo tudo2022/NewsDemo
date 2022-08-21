@@ -24,7 +24,6 @@ class MainViewModel : ViewModel() {
         .baseUrl("https://newsapi.org/")
         .build()
 
-
     fun getData() {
         viewModelScope.launch {
             try {
@@ -47,5 +46,4 @@ class MainViewModel : ViewModel() {
             }
         }
     }
-
 }

@@ -13,18 +13,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_news"
-            android:layout_width="84dp"
-            android:layout_height="84dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/news_image"
             android:scaleType="centerCrop"
-            bind:imageUrl="@{articleModel.urlToImage}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.317"
+            bind:imageUrl="@{articleModel.urlToImage}" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -32,8 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="@{articleModel.title}"
-            app:layout_constraintStart_toEndOf="@+id/iv_news"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/iv_news"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
             android:id="@+id/tv_author"
@@ -41,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="@{articleModel.author}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_news"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

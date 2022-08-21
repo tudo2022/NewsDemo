@@ -1,6 +1,8 @@
 package com.example.newsdemo.ui
 
+import android.icu.lang.UCharacter
 import android.os.Bundle
+import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.newsdemo.BR
 import com.example.newsdemo.R
 import com.example.newsdemo.databinding.ActivityMainBinding
@@ -29,13 +32,15 @@ class MainActivity : AppCompatActivity() {
         val vm: MainViewModel by viewModels()
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.rvNews.adapter = MainAdapter()
+        binding.viewPager.adapter = ViewPagerAdapter()
 
         lifecycleScope.launch {
             vm.listFlow.collectLatest {
-                (binding.rvNews.adapter as MainAdapter).submitList(it)
+                (binding.viewPager.adapter as ViewPagerAdapter).setData(it)
+                binding.pbNews.visibility = View.INVISIBLE
             }
         }
         vm.getData()
+        binding.viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
     }
 }
